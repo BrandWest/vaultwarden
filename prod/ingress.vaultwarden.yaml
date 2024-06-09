@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: vaultwarden
   labels:
-    name: vaultwarden
+    app: vaultwarden
   annotations:
     cert-manager.io/issuer: vaultwarde-letsencrypt
 spec:
