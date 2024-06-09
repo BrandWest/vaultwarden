@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: vaultwarden-letsencryptvaultwarden.diagon.cloudvaultwarden.diagon.cloud
+  name: vaultwarden-letsencrypt
 spec:
   acme:
     # The ACME server URL
