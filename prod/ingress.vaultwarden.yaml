@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vaultwarden
+  labels:
+    name: vaultwarden
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: <path:argocd/data/argocd-vault-plugin/vaultwarden#DOMAIN>
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: vaultwarden-server
+              port:
+                number: 80
+  tls:
+  - hosts:
+    - <path:argocd/data/argocd-vault-plugin/vaultwarden#DOMAIN>
+    secretName: vaultwarden-tls

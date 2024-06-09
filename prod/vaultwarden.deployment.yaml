@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vaultwarden-pod
+  namespace: vaultwarden
+  labels:
+    app: vaultwarden
+spec:
+  selector:
+    matchLabels:
+      app: vaultwarden
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: vaultwarden
+    spec:
+      containers:
+      - name: vaultwarden-pod
+        image: vaultwarden/server@sha256:6f6ec220ed300e1a11475a91d270985915083512f9fb60c1c25783faaa66eef5
+        imagePullPolicy: IfNotPresent
+        envFrom:
+        - secretRef:
+            name: admin-tokens
+        ports:
+        - containerPort: 80
+          name: vw-http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/home/vaultwarden"
+          name: vaultwarden-storage
+        resources: {}
+      volumes:
+      - name: vaultwarden-storage
+        persistentVolumeClaim:
+          claimName: vaultwarden-storage-pvc    

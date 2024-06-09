@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: vaultwarden-storage-pv
+  labels:
+    type: local
+    app: vaultwarden
+spec:
+  storageClassName: vaultwarden-storage
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/home/nfs/vaultwarden"
