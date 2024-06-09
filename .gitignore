@@ -1,0 +1,9 @@
+dev/certificate.vaultwarden.yaml
+dev/ingress.vaultwarden.yaml
+dev/issuer.vaultwarden.yaml
+dev/secrets.vaultwarden.yaml
+dev/vaultwarden.deployment.yaml
+dev/vaultwarden.namespace.yaml
+dev/vaultwarden.pv.yaml
+dev/vaultwarden.pvc.yaml
+dev/vaultwarden.storage.yaml
