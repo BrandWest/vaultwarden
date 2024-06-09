@@ -9,6 +9,6 @@ spec:
     - name: https
       protocol: TCP
       port: 443
-      targetPort: 80
+      targetPort: 443
   selector:
-    app.kubernetes.io/name: "vaultwarden"
+    app: "vaultwarden"

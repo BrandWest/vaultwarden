@@ -4,6 +4,8 @@ metadata:
   name: vaultwarden
   labels:
     name: vaultwarden
+  annotations:
+    cert-manager.io/issuer: vaultwarde-letsencrypt
 spec:
   ingressClassName: nginx
   rules:
@@ -16,7 +18,7 @@ spec:
             service:
               name: vaultwarden-svc
               port:
-                number: 80
+                number: 443
   tls:
   - hosts:
     - <path:argocd/data/argocd-vault-plugin/vaultwarden#DOMAIN>
