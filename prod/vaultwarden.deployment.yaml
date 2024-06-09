@@ -28,8 +28,8 @@ spec:
         - secretRef:
             name: admin-tokens
         ports:
-        - containerPort: 443
-          name: https
+        - containerPort: 80
+          name: http
           protocol: TCP
         volumeMounts:
         - mountPath: "/home/vaultwarden"

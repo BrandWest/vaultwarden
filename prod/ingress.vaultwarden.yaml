@@ -18,7 +18,7 @@ spec:
             service:
               name: vaultwarden-svc
               port:
-                number: 443
+                number: 80
   tls:
   - hosts:
     - <path:argocd/data/argocd-vault-plugin/vaultwarden#DOMAIN>
