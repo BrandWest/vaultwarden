@@ -5,7 +5,7 @@ metadata:
   labels:
     app: vaultwarden
   annotations:
-    cert-manager.io/issuer: vaultwarde-letsencrypt
+    cert-manager.io/issuer: vaultwarden-letsencrypt
 spec:
   ingressClassName: nginx
   rules:
